@@ -3,6 +3,7 @@
 //research build
 
 #include "G4SystemOfUnits.hh" //allows us to use metric system in volume construction
+#include "globals.hh"
 #include "G4VUserDetectorConstruction.hh"
 #include "G4VPhysicalVolume.hh"
 #include "G4LogicalVolume.hh"
@@ -26,10 +27,16 @@ class VolumeConstruction : public G4VUserDetectorConstruction
 	//Declaring detector and field logical volumes
 	private:
 		G4LogicalVolume *logicDetector; // 50 micron detectors
-		G4LogicalVolume * logicDetectorTwo; // 300 micron detectors
-		G4LogicalVolume *logicField;
+		G4LogicalVolume * logicDetectorThick; // 300 micron detectors
+		G4LogicalVolume *logicalFieldVolume;
 		//ConstructSD is for sensitive detectors
-		//if we had fields we would also need to include them here (?)
+		
+		// Electric field region parameters need to be defined here so we can use them in both Construct() and ConstructSDandField()
+		G4double fieldRegionSizeX;
+		G4double fieldRegionSizeY;
+		G4double fieldRegionSizeZ;
+		G4double fieldZ0;
+
 		virtual void ConstructSDandField();
 };	
 

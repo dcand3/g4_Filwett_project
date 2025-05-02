@@ -23,16 +23,32 @@ include(${Geant4_USE_FILE})
 # Locate sources and headers for this project
 # NB: headers are included so they will show up in IDEs
 #
-file(GLOB sources ${PROJECT_SOURCE_DIR}/*.cc)
+file(GLOB sources ${PROJECT_SOURCE_DIR}/*.cpp)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/*.hh)
+
+file(GLOB MACRO_FILES "${CMAKE_SOURCE_DIR}/*.mac")
 
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
 add_executable(main main.cpp VolumeConstruction.cpp physics.cpp action.cpp generator.cpp 
-	DetectorConstruction.cpp run.cpp ElectricField.cpp ${sources} ${headers})
-#add_executable(action.cpp generator.cpp ${sources} ${headers})
+	DetectorConstruction.cpp run.cpp ${sources} ${headers})
+#add_executable(main main.cpp ${source} ${headers})
+
 target_link_libraries(main ${Geant4_LIBRARIES})
+
+#----------------------------------------------------------------------------
+# Copy each .mac file to the output directory after build
+#
+#foreach(mac_file ${MACRO_FILES})
+#    add_custom_command(TARGET main POST_BUILD
+#        COMMAND ${CMAKE_COMMAND} -E copy
+#        ${mac_file}
+#        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$<CONFIG>
+#        COMMENT "Copying ${mac_file} to runtime directory"
+#    )
+#endforeach()
+
 
 #----------------------------------------------------------------------------
 # For internal Geant4 use - but has no effect if you build this

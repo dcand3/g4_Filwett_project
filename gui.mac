@@ -1,0 +1,56 @@
+#
+# This file permits to customize, with commands,
+# the menu bar of the G4UIXm, G4UIQt, G4UIWin32 sessions.
+# It has no effect with G4UIterminal.
+#
+# File menu :
+/gui/addMenu file File
+/gui/addButton file Quit exit
+#
+# Run menu :
+/gui/addMenu run Run
+/gui/addButton run "Reinitialize"	"/run/initialize"
+/gui/addButton run "beamOn 1" 		"/run/beamOn 1"
+/gui/addButton run "beamOn 10" 		"/run/beamOn 10"
+#/gui/addButton run run1 			"/control/execute run1.mac"
+#/gui/addButton run run2 			"/control/execute run2.mac"
+#
+# Gun menu :
+/gui/addMenu gun Gun
+/gui/addButton gun "1 MeV"   "/gun/energy 1 MeV"
+/gui/addButton gun "10 MeV"  "/gun/energy 10 MeV"
+/gui/addButton gun "100 MeV" "/gun/energy 100 MeV"
+/gui/addButton gun "proton"  "/gun/particle proton"
+/gui/addButton gun "He3"	 "/gun/particle He3"
+#
+# Ion menu :
+/gui/addMenu ion Ions
+/gui/addButton ion "Set Ion Mode" "/gun/particle ion"
+/gui/addButton ion "He4"     "/gun/ion 2 4 2 0" # (Z=2, A=4, charge=2+, no excitation energy).
+/gui/addButton ion "Fe12+"   "/gun/ion 26 56 12 0"
+/gui/addButton ion "Fe13+"   "/gun/ion 26 56 13 0"
+/gui/addButton ion "Fe14+"   "/gun/ion 26 56 14 0"
+/gui/addButton ion "Fe15+"   "/gun/ion 26 56 15 0"
+/gui/addButton ion "Fe16+"   "/gun/ion 26 56 16 0"
+/gui/addButton ion "Fe17+"   "/gun/ion 26 56 17 0"
+/gui/addButton ion "Fe18+"   "/gun/ion 26 56 18 0"
+/gui/addButton ion "Fe19+"   "/gun/ion 26 56 19 0"
+/gui/addButton ion "Fe20+"   "/gun/ion 26 56 20 0"
+/gui/addButton ion "Fe21+"   "/gun/ion 26 56 21 0"
+/gui/addButton ion "Fe22+"   "/gun/ion 26 56 22 0"
+#
+# Field menu :
+#/gui/addMenu field Field
+#/gui/addButton field "off"       "/B2/det/setField 0.2 tesla"
+#/gui/addButton field "0.2 tesla" "/B2/det/setField 0.2 tesla"
+#/gui/addButton field "2.0 tesla" "/B2/det/setField 2.0 tesla"
+#
+# Viewer menu :
+/gui/addMenu viewer Viewer
+/gui/addButton viewer "Set style surface"	"/vis/viewer/set/style surface"
+/gui/addButton viewer "Set style wireframe" "/vis/viewer/set/style wireframe"
+/gui/addButton viewer "Refresh viewer" 		"/vis/viewer/refresh"
+/gui/addButton viewer "Update viewer (interaction or end-of-file)" "/vis/viewer/update"
+/gui/addButton viewer "Flush viewer (= refresh + update)" "/vis/viewer/flush"
+/gui/addButton viewer "Update scene" 		"/vis/scene/notifyHandlers"
+#

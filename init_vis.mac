@@ -1,0 +1,28 @@
+# Macro file for the initialization research_build
+# in interactive session
+#
+# It creates the default geometry         
+#
+/tracking/verbose 1
+/run/verbose 1
+#
+#
+#
+#/field/stepperType ClassicalRK4
+#/field/setMinimumStep 0.25 mm
+#/field/setField 0. 0. 1. kG
+#
+#/field/update
+#
+/run/initialize
+#
+/run/particle/dumpCutValues
+#
+# Particle gun configuration
+#/gun/particle proton
+#/gun/position 0. 0. -190. mm	#starting position
+#/gun/direction 0. 0. 1. 		#momentum direction
+#/gun/energy 10.0 MeV			#particle energy
+
+# Visualization setting
+/control/execute vis.mac

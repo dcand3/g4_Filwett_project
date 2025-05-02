@@ -1,18 +1,21 @@
 #include "action.hh"
 #include "generator.hh"
-//research build
+#include "event.hh"
 
-MyActionInitialization::MyActionInitialization()
-{}
+#include <iostream>
 
-MyActionInitialization::~MyActionInitialization()
-{}
+MyActionInitialization::MyActionInitialization() {}
+
+MyActionInitialization::~MyActionInitialization() {}
 
 void MyActionInitialization::Build() const
 {
-	MyPrimaryGenerator *generator = new MyPrimaryGenerator();
-	SetUserAction(generator);
+    PrimaryGenerator* generator = new PrimaryGenerator();
+    SetUserAction(generator);
+
+    MyRunAction* runAction = new MyRunAction();
+    SetUserAction(runAction);
 	
-	MyRunAction *runAction = new MyRunAction();
-	SetUserAction(runAction);
+	MyEventAction* eventAction = new MyEventAction(runAction);
+	SetUserAction(eventAction);
 }

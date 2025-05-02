@@ -10,7 +10,13 @@
 //research build
 
 int main(int argc, char** argv)
-{
+{	
+// Instantiate G4UIExecutive if there are no arguments (interactive mode)
+	G4UIExecutive* ui = nullptr;
+	if (argc == 1) {
+		ui = new G4UIExecutive(argc, argv);
+	}
+	
 	G4RunManager *runManager = new G4RunManager();
 	
 	runManager->SetUserInitialization(new VolumeConstruction());
@@ -19,7 +25,7 @@ int main(int argc, char** argv)
 	
 	runManager->Initialize();
 	
-	G4UIExecutive *ui = new G4UIExecutive(argc, argv);
+	//G4UIExecutive *ui = new G4UIExecutive(argc, argv);
 	
 	G4VisManager *visManager = new G4VisExecutive();
 	visManager ->Initialize();
@@ -30,19 +36,29 @@ int main(int argc, char** argv)
 	uiManager->ApplyCommand("/vis/open TSG");
 	uiManager->ApplyCommand("/vis/drawVolume");
 	
-	//To see particles
-	uiManager->ApplyCommand("/vis/scene/add/trajectories smooth");
+	//To run mac files
+  if (!ui)  // batch mode
+  {
+    G4String command = "/control/execute ";
+    G4String fileName = argv[1];
+    uiManager->ApplyCommand(command + fileName);
+  }
+  else {
+    uiManager->ApplyCommand("/control/execute init_vis.mac");
+    uiManager->ApplyCommand("/control/execute gui.mac");
+    ui->SessionStart();
+    delete ui;
+  }
 	
-	//To update everytime we create an event
-	uiManager->ApplyCommand("vis/viewer/set/autoRefresh true");
-	
-	//To accumulate all sequential events into a single run
-	uiManager->ApplyCommand("/vis/scene/endOfEventAction accumulate");
+	//To see volumes
+//	uiManager->ApplyCommand("/vis/initialize");
+//	uiManager->ApplyCommand("/vis/open TSG");
 	
 	//To visualize the electric field
-	uiManager->ApplyCommand("/vis/scene/add/electricField");
-	
-	ui ->SessionStart();
+//	uiManager->ApplyCommand("/vis/scene/add/electricField");
+
+	delete visManager;
+	delete runManager;
 	
 	return 0;
 }
