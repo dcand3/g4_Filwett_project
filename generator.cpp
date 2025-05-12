@@ -8,6 +8,49 @@
 #include <iostream> 
 #include <cmath>
 
+// ----------------------------------------------------------------------------
+// File: generator.cpp
+// What this file does:
+// This file defines the PrimaryGenerator class, which is responsible for
+// generating primary particles in the simulation. It sets up the particle gun
+// and loads particle data from a file to create particles with specific properties.
+//
+// What happens here:
+// - The constructor initializes the particle gun and loads particle data from
+// the file "particle_data.txt".
+// - The LoadParticleData() function reads data from the file and stores information
+// about each particle (e.g., mass, charge, position, momentum, and energy).
+// - The GeneratePrimaries() function is responsible for generating all the particles
+// in a single event, using the loaded particle data. It configures the particle gun
+// with each particle's properties (charge, position, momentum, and energy) and
+// generates the particle for the event.
+//
+// Key Components:
+// - PrimaryGenerator constructor: initializes the particle gun and loads data from
+// the file.
+// - LoadParticleData(): reads the particle information from the "particle_data.txt"
+// file, parses it, and stores it in the particles vector.
+// - GeneratePrimaries(): creates the primary particles for a Geant4 event based on
+// the data loaded and configures the particle gun to generate them.
+//
+// What is the particle data format:
+// The file "particle_data.txt" contains particle properties, one particle per line,
+// with the following format:
+// mass_u charge x y z vx vy vz kineticEnergy
+// Where:
+// - mass_u: mass of the particle in atomic mass units (amu)
+// - charge: charge of the particle (in e)
+// - x, y, z: position of the particle (in mm)
+// - vx, vy, vz: velocity components of the particle (in km/s)
+// - kineticEnergy: particle's kinetic energy (in eV)
+// The file is read line by line, and the data is parsed and converted into Geant4
+// units (mm, MeV, etc.).
+//
+// When it's used:
+// This file is used during the simulation setup to generate the initial set of
+// particles in each event based on the provided data file.
+// ----------------------------------------------------------------------------
+
 // Constructor: Initializes the particle gun and loads particle data from file
 PrimaryGenerator::PrimaryGenerator()
     : fParticleGun(new G4ParticleGun(1)) {

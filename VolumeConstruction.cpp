@@ -14,6 +14,53 @@
 // this version of VolumeConstruction will take position and momentum values from simIon, and model the particles through the detectors
 // simIon will model the particles through the potential and create a csv file to be read by generator in geant4
 
+// ----------------------------------------------------------------------------
+// File: VolumeConstruction.cpp
+// What this file does:
+//   This file defines the implementation of the `VolumeConstruction` class, which 
+//   is responsible for constructing the physical and logical volumes of the detector 
+//   in the Geant4 simulation. It also handles the configuration of sensitive detectors, 
+//   electric field regions, and visualization aspects of the detector setup.
+//
+// Key Components:
+//   - `VolumeConstruction`: A class that inherits from `G4VUserDetectorConstruction` 
+//     and implements the `Construct()` method to set up and place the physical and 
+//     logical volumes for the world and detectors in the simulation.
+//   - `Construct()`: The primary method responsible for defining and constructing 
+//     all the volumes in the simulation, including the world volume, electric field 
+//     region, and multiple detectors. It places each volume within the world volume and 
+//     sets up the geometry of the detector system.
+//   - `ConstructSDandField()`: This method is used to set up the sensitive detectors 
+//     by associating them with their respective logical volumes. It also initializes 
+//     the electric and magnetic fields for the detector setup.
+//   
+// Declared Methods and Functions:
+//   - `VolumeConstruction()`: Constructor that initializes parameters for volumes, 
+//     including the world volume and detector materials.
+//   - `~VolumeConstruction()`: Destructor for cleaning up the resources allocated 
+//     for volumes, detectors, and electric/magnetic fields.
+//   - `Construct()`: Defines the construction of the physical and logical volumes, 
+//     including the creation of the world volume, detector arrays, electric field 
+//     region, and their placements in the simulation environment. It returns the 
+//     root physical volume of the setup.
+//   - `ConstructSDandField()`: Configures the sensitive detectors by associating 
+//     the detector logical volumes with the corresponding sensitive detector classes. 
+//     This method also initializes the field setup for the electric/magnetic fields, 
+//     although the electric field part is currently commented out.
+//
+// Purpose:
+//   - The purpose of this file is to define the structure of the detector system, 
+//     including the world volume, detector regions, sensitive detectors, and electric 
+//     fields for the simulation. The `VolumeConstruction` class serves as a vital 
+//     component in constructing the simulation environment and assigning the necessary 
+//     properties to the various elements of the detector setup.
+//
+// When it's used:
+//   - This file is used during the initialization phase of a Geant4 simulation. When 
+//     the simulation is set up, an instance of the `VolumeConstruction` class is 
+//     created, and the `Construct()` method is called to build the detector geometry. 
+//     The `ConstructSDandField()` method configures sensitive detectors and electric 
+//     field regions before running the simulation.
 
 VolumeConstruction::VolumeConstruction()
 {}

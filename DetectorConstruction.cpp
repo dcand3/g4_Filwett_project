@@ -10,6 +10,9 @@
 #include "G4SystemOfUnits.hh"
 #include "G4RunManager.hh"
 
+// ----------------------------------------------------------------------------
+// File: DetectorConstruction.cpp
+// What this file does:
 // This file defines the MySensitiveDetector class, responsible for processing
 // individual particle hits in sensitive detector volumes. DetectorConstruction
 // reacts immediately to each particle step inside a sensitive volume (a "hit")
@@ -37,6 +40,7 @@
 // Note:
 // The actual accumulation and writing of data happens in the EventAction class.
 //
+// ----------------------------------------------------------------------------
 
 
 // Constructor: initializes the sensitive detector with a given name
