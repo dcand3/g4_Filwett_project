@@ -1,0 +1,35 @@
+particles {
+		-- This fly2 file will create heavy ions (Fe 12-22) in a uniform line
+		-- all with the same energy (say 10 MeV) 
+  -- Iron ions (charge states 12+ to 22+)
+  standard_beam {
+    n = 1, 
+    mass = 55.92,
+    charge = 12,
+    x = -20,
+    y = 24,
+    z = 0,
+    ke = 1e7,
+    direction = vector(0, 0, 1),
+    color = 1
+  },
+  standard_beam { n = 1, mass = 55.92, charge = 13, x = -16, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 2 },
+  standard_beam { n = 1, mass = 55.92, charge = 14, x = -12, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 3 },
+  standard_beam { n = 1, mass = 55.92, charge = 15, x = -8, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 4 },
+  standard_beam { n = 1, mass = 55.92, charge = 16, x = -4, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 5 },
+  standard_beam { n = 1, mass = 55.92, charge = 17, x = 0, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 6 },
+  standard_beam { n = 1, mass = 55.92, charge = 18, x = 4, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 7 },
+  standard_beam { n = 1, mass = 55.92, charge = 19, x = 8, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 8 },
+  standard_beam { n = 1, mass = 55.92, charge = 20, x = 12, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 9 },
+  standard_beam { n = 1, mass = 55.92, charge = 21, x = 16, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 10 },
+  standard_beam { n = 1, mass = 55.92, charge = 22, x = 20, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 11 },
+  standard_beam { n = 1, mass = 55.92, charge = 0, x = 24, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 12 },
+  
+  --For testing why Fe21 is being accelerated slightly more than Fe22 when above line of particles is run.
+  -- Running the below two particles alone seems to fix the issue. Must be related to edge effects of field?
+  -- Notice the locations of the two particles have been moved to be symmetric about x = 0 at x = -4, 4
+  --standard_beam { n = 1, mass = 55.92, charge = 21, x = -4, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 1 },
+  --standard_beam { n = 1, mass = 55.92, charge = 22, x = 4, y = 24, z = 0, ke = 1e7, direction = vector(0, 0, 1), color = 2 },
+
+}
+

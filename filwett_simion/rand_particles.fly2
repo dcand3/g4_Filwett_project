@@ -1,0 +1,51 @@
+particles {
+  -- Iron ions (charge states 12+ to 22+)
+  standard_beam {
+    n = 100*0.01, -- ~1% of particles in SEP event are each type of Fe ion
+    mass = 55.92,
+    charge = 12,
+    x = uniform_distribution {min = -24, max = 24},
+    y = uniform_distribution {min = 1, max = 49},
+    z = 0,
+    ke = uniform_distribution {min = 1e6, max = 1e8},
+    direction = vector(0, 0, 1),
+    color = 1
+  },
+  standard_beam { n = 1, mass = 55.92, charge = 13, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 14, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 15, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 16, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 17, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 18, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 19, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 20, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 21, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+  standard_beam { n = 1, mass = 55.92, charge = 22, x = uniform_distribution {min = -24, max = 24}, y = uniform_distribution {min = 1, max = 49}, z = 0, ke = uniform_distribution {min = 1e6, max = 1e8}, direction = vector(0, 0, 1), color = 1 },
+
+  -- Helium-4
+  standard_beam {
+    n = 100*0.9, -- ~90% of particles in SEP event are He4
+    mass = 4.0026,
+    charge = 2,
+    x = uniform_distribution {min = -24, max = 24},
+    y = uniform_distribution {min = 1, max = 49},
+    z = 0,
+    ke = uniform_distribution {min = 1e6, max = 1e8},
+    direction = vector(0, 0, 1),
+    color = 2
+  },
+
+  -- Helium-3
+  standard_beam {
+    n = 100*0.1, -- ~0.1% of particles in sep event are He3
+    mass = 3.016,
+    charge = 2,
+    x = uniform_distribution {min = -24, max = 24},
+    y = uniform_distribution {min = 1, max = 49},
+    z = 0,
+    ke = uniform_distribution {min = 1e6, max = 1e8},
+    direction = vector(0, 0, 1),
+    color = 3
+  }
+}
+
